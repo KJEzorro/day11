@@ -73,38 +73,6 @@
 
     </script>
 
-
-    <script>
-        $(document).ready(function (){
-            $("#tabsDiv").tabs()
-
-            $("#tabsDiv a").on("click", function (e){
-                e.preventDefault()
-                e.stopPropagation()
-
-                // 밑의 코드 === e.target.getAttribute("data-url)
-                const url = $(e.target).data("url")
-
-                $.getJSON(url,function (arr){
-                    storesArr = arr
-
-                    let str = ''
-
-                    for (let i = 0; i < arr.length; i++) {
-                        const {sno,sname} = arr[i]
-
-                        str += `<option value="${sno}">${sname}</option>`
-                    }
-                    console.log("1234123123")
-                    console.log(str)
-                    // $('#result').html(str)
-                })//getjson
-            })//click
-        })
-
-    </script>
-
-
     <script src="ex4.js"></script>
 
     <script>
@@ -164,6 +132,7 @@
 
             const idx = target.getAttribute("data-idx")
             const store = storeService.getDataByIndex(idx)
+            console.log("store")
             console.log(store)
 
             showMarkers([store])
